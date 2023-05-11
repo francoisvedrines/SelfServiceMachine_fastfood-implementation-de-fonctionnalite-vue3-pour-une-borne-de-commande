@@ -70,9 +70,19 @@ const SelfServiceMachine = {
         return {
             products: window.products
         }
+    },
+    methods: {
+        total: function() {
+            let total = 0;
+            this.products.forEach(function(item){
+                if (item.active){
+                    total += item.price * item.quantity;
+                }
+            });
+            return total.toFixed(2);
+        }
     }
-
-}
+};
 
 
 
